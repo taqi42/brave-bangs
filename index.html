@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="theme-color" content="#111110" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <style>
+      html {
+        background: #111110;
+      }
+    </style>
+    <script>
+      // Redirect before anything renders
+      (function () {
+        var q = new URLSearchParams(window.location.search).get("q");
+        if (q && q.trim()) {
+          if (/(?:^|\s)![\w]/.test(q.trim())) {
+            window.location.replace(
+              "https://search.brave.com/search?q=" + encodeURIComponent(q),
+            );
+          } else {
+            window.location.replace(
+              "https://www.google.com/search?q=" + encodeURIComponent(q),
+            );
+          }
+        }
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Br*ve !Bangs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="header">
+        <div class="wordmark">Br<em>*</em>ve <em>!</em>Bangs</div>
+        <div class="tagline">bangs via brave · search via google</div>
+      </div>
+
+      <div class="search">
+        <div class="input-wrap" id="input-wrap">
+          <input
+            id="query"
+            type="text"
+            placeholder="!gh something  or  just type..."
+            autocomplete="off"
+            spellcheck="false"
+            autofocus
+          />
+          <button class="go" onclick="go()">go →</button>
+        </div>
+        <div class="status" id="status">
+          <div class="dot"></div>
+          <span id="status-text">—</span>
+        </div>
+      </div>
+
+      <div class="bangs">
+        <div class="label">quick bangs</div>
+        <div class="bang-list">
+          <span class="bang" onclick="fill('!gh ')">!gh</span>
+          <span class="bang" onclick="fill('!yt ')">!yt</span>
+          <span class="bang" onclick="fill('!mdn ')">!mdn</span>
+          <span class="bang" onclick="fill('!r ')">!r</span>
+          <span class="bang" onclick="fill('!npm ')">!npm</span>
+          <span class="bang" onclick="fill('!w ')">!w</span>
+          <span class="bang" onclick="fill('!tw ')">!tw</span>
+          <span class="bang" onclick="fill('!a ')">!a</span>
+          <span class="bang" onclick="fill('!so ')">!so</span>
+          <span class="bang" onclick="fill('!ddg ')">!ddg</span>
+        </div>
+      </div>
+
+      <div class="footer">
+        <a href="https://github.com/taqi42" target="_blank"
+          >github.com/taqi42</a
+        >
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
