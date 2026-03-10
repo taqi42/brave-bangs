@@ -65,7 +65,7 @@ input.addEventListener("keydown", (e) => {
 
 // Register service worker for instant redirects
 if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("/brave-bangs/sw.js");
+  navigator.serviceWorker.register("/sw.js");
 }
 
 // Theme toggle
